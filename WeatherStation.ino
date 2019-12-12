@@ -12,14 +12,13 @@
 
 
 #define _DEBUG 1
-#define _DO_MEASURE 1
 
 
-#define _SLEEP_DURATION         300 //this is in seconds
+#define _SLEEP_DURATION                          300 //this is in seconds
 
-#define _MQTT_HOST "mqtt.home"
-#define _MQTT_HOST_PORT 1883
-#define _MQTT_ROOT                               "homeQA/weather"
+#define _MQTT_HOST                               "mqtt.home"
+#define _MQTT_HOST_PORT                          1883
+#define _MQTT_ROOT                               "home/weather"
 #define _MQTT_ROOT_WEATHER_HEARTBEAT             _MQTT_ROOT "/heartbeat"
 #define _MQTT_ROOT_WEATHER_TEMPERATURE           _MQTT_ROOT "/temperature"
 #define _MQTT_ROOT_WEATHER_HUMIDITY              _MQTT_ROOT "/humidity"
@@ -29,7 +28,6 @@
 #define _MQTT_ROOT_WEATHER_OTA_START             _MQTT_ROOT "/ota/start"
 #define _MQTT_ROOT_WEATHER_SYS_RUNTIME           _MQTT_ROOT "/sys/runtime"
 #define _HOST_NAME                               "WeatherStation"
-#define _WIFI_DEFAULT_PASSWORD                   "Qwe33r!y"
 
 
 float globalBatteryVoltage  = 0;

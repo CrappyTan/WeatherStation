@@ -16,12 +16,11 @@ void getMQTTPacket(char* topic, byte* payload, unsigned int length){
     
     char*  pl = (char *)payload;
     pl[length] = '\0';
-    printDebug(String("Message arrived [") + String(topic).c_str() + "]");  // + [") + payloadString + "]");
-     
+    
     if (strcmp(pl, "ON") == 0) {
           printDebug(F("Found incoming message. Starting OTA timer"));
           psClient.publish(_MQTT_ROOT_WEATHER_OTA_START, "OFF", true); //publish retained OFF in acknowledgment.
-          psClient.publish(_MQTT_ROOT_WEATHER_OTA_REMAINING, 0); 
+          psClient.publish(_MQTT_ROOT_WEATHER_OTA_REMAINING, "0"); 
           sleepWaitFor = 60;
     }
 }
