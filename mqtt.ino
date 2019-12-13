@@ -71,10 +71,23 @@ void MQTT_connect() {
 }
 
 void mqttSend(){
+
+  #ifdef _NO_MQTT_PUBLISH
+    return;
+  #endif
+//  unsigned long mStart = millis();
+  
   psClient.publish(_MQTT_ROOT_WEATHER_BATTERY_VOLTAGE, String(globalBatteryVoltage).c_str(), true);
   psClient.publish(_MQTT_ROOT_WEATHER_BATTERY_PERCENTAGE, String(globalBatteryPerc).c_str(), true);
   psClient.publish(_MQTT_ROOT_WEATHER_HUMIDITY, String(globalHumidity).c_str(), true);
   psClient.publish(_MQTT_ROOT_WEATHER_TEMPERATURE, String(globalTemperature).c_str(), true);
+  psClient.publish(_MQTT_ROOT_WEATHER_PRESSURE, String(globalPressure).c_str(), true);
+  psClient.publish(_MQTT_ROOT_WEATHER_ALTITUDE, String(globalAltitude).c_str(), true);
+  psClient.publish(_MQTT_ROOT_WEATHER_DEWPOINT, String(globalDewPoint).c_str(), true);
+
+//  Serial.print("mqtt send time:");
+//  Serial.println(millis() - mStart);
+  
 }
 
 
