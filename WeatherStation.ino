@@ -19,7 +19,7 @@
 
 #define _MQTT_HOST                               "mqtt.home"
 #define _MQTT_HOST_PORT                          1883
-#define _MQTT_ROOT                               "homeQA/weather"
+#define _MQTT_ROOT                               "home/weather"
 #define _HOST_NAME                               "WeatherStation"
 
 
