@@ -9,9 +9,9 @@ void bme280Setup(){
 
   Wire.begin();
   if (!bme.begin()) {
-    printDebug("Could not find a valid BME280. Going to kill myself now."); 
-    while (1); // suicide
+    printDebug("Could not find a valid BME280. Not enablding sensor."); 
   }
+  bmeEnabled = true;
 
   bme.setSampling(Adafruit_BME280::MODE_SLEEP,
                       Adafruit_BME280::SAMPLING_X2, // temperature
@@ -23,6 +23,10 @@ void bme280Setup(){
 }
 
 void bme280Measure(){
+    if (!bmeEnabled){
+      printDebug("Measuring BME280 is disabled."); 
+      return;
+    }
     printDebug("Measuring BME280"); 
 
     globalHumidity = bme.readHumidity();

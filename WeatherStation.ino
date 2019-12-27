@@ -12,8 +12,8 @@
 #include <ArduinoOTA.h>
 
 
-#define _DEBUG 1
-//#define _NO_MQTT_PUBLISH 1
+#define _DEBUG                                   1
+//#define _NO_MQTT_PUBLISH                         0
 
 #define _SLEEP_DURATION                          300 //this is in seconds
 
@@ -35,6 +35,7 @@
 #define _MQTT_ROOT_WEATHER_OTA_REMAINING         _MQTT_ROOT "/ota/remaining"
 #define _MQTT_ROOT_WEATHER_OTA_START             _MQTT_ROOT "/ota/start"
 #define _MQTT_ROOT_WEATHER_SYS_RUNTIME           _MQTT_ROOT "/sys/runtime"
+#define _MQTT_ROOT_WEATHER_SYS_RSSI              _MQTT_ROOT "/sys/rssi"
 
 
 float globalBatteryVoltage  = 0;
@@ -44,7 +45,9 @@ float globalTemperature     = 0;
 float globalPressure        = 0;
 float globalDewPoint        = 0;
 float globalAltitude        = 0;
+long  globalSystemRSSI      = 0;
 bool  LED_STATE             = HIGH;
+bool  bmeEnabled            = true;
 
 int sleepWaitFor = 0; //time to wait in ms before going to sleep. This is for OTA
 unsigned long loopTimeSecond;
